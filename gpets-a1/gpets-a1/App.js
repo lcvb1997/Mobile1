@@ -9,6 +9,7 @@ import LoginScreen from "./LoginScreen";
 import CadastroPessoaScreen from "./CadastroPessoaScreen";
 import CadastroSucessoScreen from "./CadastroSucessoScreen";
 import LoginPessoaScreen from "./LoginPessoaScreen";
+import AddPostScreen from './AddPostScreen';
 
 // Dashboard principal
 import MainDashboard from "./MainDashboard";
@@ -86,6 +87,12 @@ export default function App() {
             gestureEnabled: false // Desabilita gesto de voltar no dashboard
           }}
         />
+
+        <Stack.Screen 
+  name="AddPost" 
+  component={AddPostScreen} 
+  options={{ headerShown: false }} 
+/>
       </Stack.Navigator>
     </NavigationContainer>
   );
