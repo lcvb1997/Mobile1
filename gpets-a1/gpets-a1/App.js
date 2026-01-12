@@ -1,0 +1,92 @@
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+// Telas de autenticação
+import HomeScreen from "./HomeScreen";
+import CadastroScreen from "./CadastroScreen";
+import LoginScreen from "./LoginScreen";
+import CadastroPessoaScreen from "./CadastroPessoaScreen";
+import CadastroSucessoScreen from "./CadastroSucessoScreen";
+import LoginPessoaScreen from "./LoginPessoaScreen";
+
+// Dashboard principal
+import MainDashboard from "./MainDashboard";
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator 
+        screenOptions={{ 
+          headerShown: false,
+          cardStyle: { backgroundColor: '#FFFFFF' }
+        }}
+        initialRouteName="Home"
+      >
+        {/* Telas de Autenticação */}
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{ animationEnabled: true }}
+        />
+        
+        <Stack.Screen 
+          name="Cadastro" 
+          component={CadastroScreen} 
+          options={{ 
+            animationEnabled: true,
+            gestureEnabled: true 
+          }}
+        />
+        
+        <Stack.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{ 
+            animationEnabled: true,
+            gestureEnabled: true 
+          }}
+        />
+        
+        <Stack.Screen 
+          name="CadastroPessoa" 
+          component={CadastroPessoaScreen} 
+          options={{ 
+            animationEnabled: true,
+            gestureEnabled: true 
+          }}
+        />
+        
+        <Stack.Screen 
+          name="CadastroSucesso" 
+          component={CadastroSucessoScreen} 
+          options={{ 
+            animationEnabled: true,
+            gestureEnabled: true 
+          }}
+        />
+        
+        <Stack.Screen 
+          name="LoginPessoa" 
+          component={LoginPessoaScreen} 
+          options={{ 
+            animationEnabled: true,
+            gestureEnabled: true 
+          }}
+        />
+        
+        {/* Dashboard Principal (após login) */}
+        <Stack.Screen 
+          name="MainDashboard" 
+          component={MainDashboard} 
+          options={{ 
+            animationEnabled: true,
+            gestureEnabled: false // Desabilita gesto de voltar no dashboard
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
